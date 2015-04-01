@@ -11,12 +11,18 @@ var TaskSchema = new Schema({
         type: String,
         required: 'Please provide a name'
     },
-    description: String,
+    description: {
+        type: String,
+        default: ""
+    },
     deadline: {
         type: Date,
         required: 'Please provide a deadline'
     },
-    completed: Boolean,
+    completed: {
+        type: Boolean,
+        default: false
+    },
     assignedUser: {
         type: String,
         default: ""
