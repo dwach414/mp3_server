@@ -75,7 +75,7 @@ tasks_route.post(function(req, res){
       if(err){
           res.status(500).json({message: handle_error(err), data:[]});
       } else{
-        res.status(201).json({message: "Task Added", data:[task]});
+        res.status(201).json({message: "Task Added", data:task});
       }
     });
   }
@@ -113,7 +113,7 @@ tasks_id_route.put(function(req, res){
           if(err){
             res.status(500).json({message: handle_error(err), data:[]});
           } else{
-            res.status(201).json({message: "Task Updated", data:[task]});
+            res.status(201).json({message: "Task Updated", data:task});
           }
         });
       }
@@ -221,7 +221,7 @@ users_route.post(function(req, res){
         res.status(500).json({message: handle_error(err), data:[]});
       }
     } else{
-      res.status(201).json({message: "User Added", data:[user]});
+      res.status(201).json({message: "User Added", data:user});
     }
   });
 });
