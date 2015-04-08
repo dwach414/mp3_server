@@ -104,6 +104,10 @@ tasks_id_route.put(function(req, res){
       if(err || task == null){
         return res.status(404).json({message: "Task Not Found", data: []});
       } else{
+        console.log(req.body.name)
+        console.log(req.body.deadline);
+        console.log(req.body.assignedUserName);
+        console.log(req.body.assignedUser);
         task.name = req.body.name;
         task.deadline = req.body.deadline;
         if(req.body.description) task.description = req.body.description;
