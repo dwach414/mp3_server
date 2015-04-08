@@ -68,10 +68,10 @@ tasks_route.post(function(req, res){
     var task = new Task();
     task.name = req.body.name;
     task.deadline = req.body.deadline;
-    if(req.body.description) task.description = req.body.description;
-    if(req.body.completed) task.completed = req.body.completed;
-    if(req.body.assignedUser) task.assignedUser = req.body.assignedUser;
-    if(req.body.assignedUserName) task.assignedUserName = req.body.assignedUserName;
+    if('description' in req.body) task.description = req.body.description;
+    if('completed' in req.body) task.completed = req.body.completed;
+    if('assignedUser' in req.body) task.assignedUser = req.body.assignedUser;
+    if('assignedUserName' in req.body) task.assignedUserName = req.body.assignedUserName;
     task.save(function(err){
       if(err){
           res.status(500).json({message: handle_error(err), data:[]});
@@ -106,15 +106,10 @@ tasks_id_route.put(function(req, res){
       } else{
         task.name = req.body.name;
         task.deadline = req.body.deadline;
-        console.log(req.body);
-        console.log(req.body.assignedUser == null);
-        console.log(req.body.assignedUser == undefined);
-        console.log('assignedUser' in req.body);
-        console.log('description' in req.body);
-        if(req.body.description) task.description = req.body.description;
-        if(req.body.completed) task.completed = req.body.completed;
-        if(req.body.assignedUser) task.assignedUser = req.body.assignedUser;
-        if(req.body.assignedUserName) task.assignedUserName = req.body.assignedUserName;
+        if('description' in req.body) task.description = req.body.description;
+        if('completed' in req.body) task.completed = req.body.completed;
+        if('assignedUser' in req.body) task.assignedUser = req.body.assignedUser;
+        if('assignedUserName' in req.body) task.assignedUserName = req.body.assignedUserName;
         task.save(function(err){
           if(err){
             res.status(500).json({message: handle_error(err), data:[]});
