@@ -107,6 +107,10 @@ tasks_id_route.put(function(req, res){
         task.name = req.body.name;
         task.deadline = req.body.deadline;
         console.log(req.body);
+        console.log(req.body.assignedUser == null);
+        console.log(req.body.contains(assignedUser));
+        console.log('assignedUser' in req.body);
+        console.log('description' in req.body);
         if(req.body.description) task.description = req.body.description;
         if(req.body.completed) task.completed = req.body.completed;
         if(req.body.assignedUser) task.assignedUser = req.body.assignedUser;
