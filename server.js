@@ -141,11 +141,8 @@ users_id_route.get(function(req, res){
 });
 
 users_id_route.put(function(req, res){
-  if('pendingTasks' in req.body){
-    console.log("woo");
-  }
-  console.log(req.body);
-  var args = ('pendingTasks' in req.body) ? {name: req.body.name, email: req.body.email, pendingTasks: req.body.pendingTasks} : {name: req.body.name, email: req.body.email};
+
+  var args = ('pendingTasks' in req.body) ? {name: req.body.name, email: req.body.email, pendingTasks: req.body.pendingTasks} : {name: req.body.name, email: req.body.email, pendingTasks: []};
   User.findByIdAndUpdate(req.params.id, args, function(err, user){
     if (err || user == null) {
       if(req.body.name && !req.body.email){
