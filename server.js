@@ -196,7 +196,7 @@ var getFunction = function(model, req, res){
       }
     }
     if(req.query.count){
-      query.count(function(err, c){
+      return query.count(function(err, c){
         if(err) return res.status(500).json({message: handle_error(err), data:[]});
         return res.status(200).json({message: "Count", data:c});
       });
