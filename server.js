@@ -110,6 +110,7 @@ tasks_id_route.put(function(req, res){
         if('completed' in req.body) task.completed = req.body.completed;
         if('assignedUser' in req.body) task.assignedUser = req.body.assignedUser;
         if('assignedUserName' in req.body) task.assignedUserName = req.body.assignedUserName;
+        task.dateCreated = task.dateCreated;
         task.save(function(err){
           if(err){
             res.status(500).json({message: handle_error(err), data:[]});
